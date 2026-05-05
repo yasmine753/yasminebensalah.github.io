@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yasmine Ben Salah — Aerospace Engineer</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f9f8f5;
+      --surface: #ffffff;
+      --border: rgba(0, 0, 0, 0.08);
+      --text: #111;
+      --muted: #888;
+      --tag-bg: #f0efe9;
+      --tag-text: #555;
+      --accent: #2c4a6e;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(249, 248, 245, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    /* MAX WIDTH WRAPPER */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5.5rem 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 7rem;
+      padding-bottom: 3rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.78rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.2s forwards;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 1px;
+      background: var(--muted);
+    }
+
+    .hero-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+      padding: 0.75rem 1.75rem;
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-family: 'DM Sans', sans-serif;
+      text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.8;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--text);
+    }
+
+    /* DIVIDER */
+    hr.divider {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem;
+      border: none;
+      border-top: 1px solid var(--border);
+    }
+
+    /* SECTION LABEL */
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--muted);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-left {
+      position: relative;
+    }
+
+    .about-avatar {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #e4e2db;
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-initials {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3rem;
+      color: #999;
+      letter-spacing: -0.02em;
+    }
+
+    .about-location {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .about-location::before {
+      content: '📍';
+      font-size: 0.75rem;
+    }
+
+    .about-right {}
+
+    .about-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.9rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-headline em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .about-body {
+      font-size: 0.96rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-langs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .lang-badge {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border-radius: 100px;
+      border: 1px solid var(--border);
+    }
+
+    /* EXPERIENCE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+
+    .timeline-item:last-child {
+      border-bottom: none;
+    }
+
+    .timeline-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      padding-top: 0.15rem;
+      line-height: 1.5;
+    }
+
+    .timeline-date strong {
+      display: block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #bbb;
+      margin-bottom: 0.25rem;
+      font-weight: 400;
+    }
+
+    .timeline-body {}
+
+    .timeline-role {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+      color: var(--text);
+    }
+
+    .timeline-org {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .timeline-desc {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    .timeline-desc ul {
+      padding-left: 1.1rem;
+    }
+
+    .timeline-desc ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    /* PROJECTS / SKILLS */
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 2.5rem 3rem;
+    }
+
+    .skill-group h3 {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .skill-list {
+      list-style: none;
+    }
+
+    .skill-list li {
+      font-size: 0.9rem;
+      color: var(--text);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* EDUCATION */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem 1.75rem;
+      transition: transform 0.25s;
+    }
+
+    .edu-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .edu-year {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .edu-degree {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      line-height: 1.4;
+    }
+
+    .edu-school {
+      font-size: 0.82rem;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .edu-note {
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* COURSES */
+    .courses-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .course-tag {
+      font-size: 0.82rem;
+      padding: 0.3rem 0.9rem;
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .course-tag:hover {
+      background: var(--tag-bg);
+      border-color: rgba(0, 0, 0, 0.15);
+    }
+
+    /* CONTACT */
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .contact-headline em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .contact-sub {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .contact-link {
+      font-size: 0.88rem;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover {
+      color: var(--accent);
+    }
+
+    .contact-link-icon {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+      flex: 1;
+    }
+
+    .form-field label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .form-submit {
+      align-self: flex-start;
+      background: var(--text);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .form-submit:hover {
+      opacity: 0.8;
+      transform: translateY(-1px);
+    }
+
+    /* FOOTER */
+    footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 3rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 680px) {
+      nav {
+        padding: 1rem 1.5rem;
+      }
+
+      section {
+        padding: 4rem 1.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .about-avatar {
+        aspect-ratio: 2/1;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+
+      .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      hr.divider {
+        padding: 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">Yasmine Ben Salah.</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <p class="hero-eyebrow">Aerospace Engineering Student — TUM Munich</p>
+    <h1 class="hero-title">
+      Yasmine Ben Salah<br>
+      <em></em>
+    </h1>
+    <p class="hero-desc">
+      Aerospace engineering student at TUM — passionate about structural mechanics,
+      fluid dynamics, and spacecraft systems. Bridging rigorous engineering with hands-on
+      international experience.
+    </p>
+    <div class="hero-actions">
+      <a href="#experience" class="btn-primary">View my work</a>
+      <a href="#contact" class="btn-ghost">Get in touch &nbsp;↓</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- ABOUT -->
+  <section id="about">
+    <p class="section-label reveal">About me</p>
+    <div class="about-grid">
+      <div class="about-left reveal">
+        <div class="about-avatar">
+          <span class="avatar-initials">YBS</span>
+        </div>
+        <p class="about-location">Munich, Germany · 81925</p>
+      </div>
+      <div class="about-right reveal">
+        <h2 class="about-headline">
+          Curious engineer,<br>
+          <em>multidisciplinary thinker.</em>
+        </h2>
+        <p class="about-body">
+          Hello, I'm Yasmine, an aerospace engineering student at TU Munich,
+          My background spans structural analysis, CAD design,
+          fluid mechanics, and aircraft maintenance, with real-world experience at
+          Nouvelair and Sabena technics which are both located in Tunisia, and TUM's Chair of Spacecraft Systems.
+        </p>
+        <p class="about-body">
+          I thrive in multidisciplinary teams and love connecting the dots between
+          design, analysis, and hands-on execution. Whether it's sizing satellite
+          structural components, working on real aircraft structures and maintenance or tutoring fluid mechanics, I
+          bring the same
+          precision and care.
+        </p>
+        <p
+          style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:0.75rem;">
+          Languages</p>
+        <div class="about-langs">
+          <span class="lang-badge">ᴰᴱ Deutsch</span>
+          <span class="lang-badge">ᴱᴺ English</span>
+          <span class="lang-badge">ᶠᴿ French</span>
+          <span class="lang-badge">ᴬᴿ Arabic</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label reveal">Experience</p>
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          <strong>Current</strong>
+          Apr 2026 – Present
+        </div>
+        <div class="timeline-body">
+          <p class="timeline-role">Fluid Mechanics 2 Tutor</p>
+          <p class="timeline-org">TU Munich — Munich, Germany</p>
+          <div class="timeline-desc">
+            Supported students in mastering complex concepts through group tutoring sessions. Delivered timely
+            assistance by solving problems, addressing questions, and helping students develop clear, effective
+            approaches to their academic challenges.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          Nov 2025 – Feb 2026
+        </div>
+        <div class="timeline-body">
+          <p class="timeline-role">Fluid Mechanics 1 Tutor</p>
+          <p class="timeline-org">Chair of Aerodynamics and Fluid Mechanics — Munich, Germany</p>
+          <div class="timeline-desc">
+            Assisted students in understanding complex concepts through group tutoring sessions, providing clear
+            explanations and timely problem-solving support. Guided students in developing effective, independent
+            approaches to academic challenges.
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          Oct 2025 – Jan 2026
+        </div>
+        <div class="timeline-body">
+          <p class="timeline-role">Engineering Project — Spacecraft Structures</p>
+          <p class="timeline-org">Chair of Spacecraft Systems — Munich, Germany</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Contributed to the Structures Team for the EnduroSat satellite, focusing on mechanical design,
+                structural integration, and analysis/sizing of components for launch loads and space environment
+                constraints.</li>
+              <li>CAD modeling and iterative design of structural elements and participated in design reviews and
+                subsystem integration.</li>
+              <li>Served as departmental coordinator to facilitate communication and ensure timely availability of
+                materials and resources.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          Apr 2025 – Oct 2025
+        </div>
+        <div class="timeline-body">
+          <p class="timeline-role">Team Member — Landing Gear Team</p>
+          <p class="timeline-org">Horyzn TUM — Munich, Germany</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Designed, built, and prototyped drone landing gear using SolidWorks and CATIA for the GOAero
+                competition. Conducted structural validation and flight testing.Horyzn have won so far the first two
+                stages of the GOAero competition, and we are heading to the final stage in the US to compete with the
+                best universities in the world.</li>
+              <li>Collaborated with a team of 15+ students to develop innovative solutions and push the boundaries of
+                UAV technology.</li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          Aug 2024 – Nov 2024
+        </div>
+        <div class="timeline-body">
+          <p class="timeline-role">Engineering Team Intern (Technical Assistant)</p>
+          <p class="timeline-org">Nouvelair — Monastir, Tunisia</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Gained hands-on experience with aircraft systems and SolidWorks, supporting engineering projects and
+                contributing to technical solutions to improve aircraft performance and safety. Collaborated with
+                international technicians to troubleshoot complex issues.</li>
+              <li></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-date">
+          Aug 2024 – Nov 2024
+        </div>
+        <div class="timeline-body">
+          <p class="timeline-role">Intern — Mechanical Engineering Technician</p>
+          <p class="timeline-org">Sabena — Monastir, Tunisia</p>
+          <div class="timeline-desc">
+            <ul>
+              <li>Specialised in maintenance and inspection of aircraft engines, structural components, and critical
+                systems, including corrosion inspections, pump evaluations, and landing gear checks, ensuring regulatory
+                compliance and operational safety.</li>
+              <li>Supported international technicians during on-site operations and assisted with the coordination and
+                handling of equipment shipments, including the reception and logistics of incoming aircraft.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label reveal">Skills & tools</p>
+    <div class="skills-wrap">
+      <div class="skill-group reveal">
+        <h3>CAD & Simulation</h3>
+        <ul class="skill-list">
+          <li>SolidWorks / CATIA</li>
+          <li>Hypermesh</li>
+          <li>AutoCAD</li>
+          <li>Ansys Fluent</li>
+          <li>PSpice</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Programming</h3>
+        <ul class="skill-list">
+          <li>Python</li>
+          <li>MATLAB</li>
+          <li>C / C++</li>
+          <li>Pascal</li>
+          <li>PLCs</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Engineering</h3>
+        <ul class="skill-list">
+          <li>Structural Analysis</li>
+          <li>Fluid Mechanics</li>
+          <li>Aircraft Maintenance</li>
+          <li>Lathe / CNC Milling / 3D Printing / Tensile/ Testing Machines</li>
+        </ul>
+      </div>
+      <div class="skill-group reveal">
+        <h3>Soft Skills</h3>
+        <ul class="skill-list">
+          <li>Team Coordination</li>
+          <li>Supply Chain Coordination</li>
+          <li>Tutoring</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- COURSES -->
+    <div style="margin-top: 3.5rem;">
+      <p class="section-label reveal" style="margin-bottom:1.5rem;">Relevant coursework</p>
+      <div class="courses-wrap reveal">
+        <span class="course-tag">Engineering Mechanics</span>
+        <span class="course-tag">Thermodynamics</span>
+        <span class="course-tag">Fluid Mechanics</span>
+        <span class="course-tag">Electrical Engineering</span>
+        <span class="course-tag">Materials Science</span>
+        <span class="course-tag">CAD</span>
+        <span class="course-tag">Aeronautic Propulsion Systems</span>
+        <span class="course-tag">Computational Aerodynamics</span>
+        <span class="course-tag">Structural Optimization</span>
+        <span class="course-tag">Computer Vision</span>
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div style="margin-top: 3.5rem;">
+      <p class="section-label reveal" style="margin-bottom:1.5rem;">Education</p>
+      <div class="edu-grid">
+        <div class="edu-card reveal">
+          <p class="edu-year">Expected Sep 2026</p>
+          <p class="edu-degree">BSc Luft- und Raumfahrttechnik<br>(Aerospace Engineering)</p>
+          <p class="edu-school">TU Munich — Germany</p>
+        </div>
+        <div class="edu-card reveal">
+          <p class="edu-year">Jun 2022</p>
+          <p class="edu-degree">High School Diploma in Technical Sciences</p>
+          <p class="edu-school">Les Elites Privatschule — Sousse, Tunisia</p>
+          <p class="edu-note">Highest Distinction · Grade: 16.58/20 (≈ 1.9 German scale)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label reveal">Get in touch</p>
+    <div class="contact-inner">
+      <div class="reveal">
+        <h2 class="contact-headline">Let's connect<br><em>and collaborate.</em></h2>
+
+        <div class="contact-links">
+          <a href="mailto:bensalahyasminee@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉</span> bensalahyasminee@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/yasmine-ben-salah-411583334/" class="contact-link">
+            <span class="contact-link-icon">in</span> LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="contact-form reveal">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Name</label>
+            <input type="text" placeholder="Your name" />
+          </div>
+          <div class="form-field">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Tell me about your project or opportunity..."></textarea>
+        </div>
+        <button class="form-submit">Send message</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Yasmine Ben Salah. Munich, Germany.</p>
+    <div class="footer-links">
+      <a href="mailto:bensalahyasminee@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/yasmine-ben-salah-411583334/">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>
